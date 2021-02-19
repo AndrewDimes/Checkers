@@ -1,31 +1,46 @@
+body{
+    
+    background-size: cover;
+
+}
+
 #checkers-board {
     display:flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+      
 }
-h1{
+#top{
     color: black;
     text-align: center;
+    margin-top: 20px;
     
+    
+
 }
+
 #rematch-button{
-    text-align: center;
-    font-size: x-large;
+    font-size: 20px;
 }
+
 
 .table {
     display: flex;
-    border: 3px groove rgb(130,32,0)
+    border: 5px groove rgb(130,32,0);
+    margin-bottom: 100px;
 }
 
 .o{
-    background-color: rgb(129,32,0);
-    width: 100px;
+    background-color: rgb(226,161,83);
+    width: 75px;
     height:75px;
 
 }
 .x {
-    background-color: rgb(226,161,83);
+    background-color: rgb(129,32,0);
     height:75px;
+    text-align: center;
+    line-height: 110px;
+    font-size: larger;
 }
