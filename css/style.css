@@ -1,0 +1,31 @@
+#checkers-board {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+h1{
+    color: black;
+    text-align: center;
+    
+}
+#rematch-button{
+    text-align: center;
+    font-size: x-large;
+}
+
+.table {
+    display: flex;
+    border: 3px groove rgb(130,32,0)
+}
+
+.o{
+    background-color: rgb(129,32,0);
+    width: 100px;
+    height:75px;
+
+}
+.x {
+    background-color: rgb(226,161,83);
+    height:75px;
+}
