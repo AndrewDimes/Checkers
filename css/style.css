@@ -1,34 +1,37 @@
 body{
-    
     background-size: cover;
-
 }
 
 #checkers-board {
     display:flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
       
 }
 #top{
     color: black;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 150px;
     
-    
-
 }
 
 #rematch-button{
     font-size: 20px;
+    border: 2px solid black;
+    width: 100px;
+    align-content: center;
+
+    
+    
 }
 
 
 .table {
     display: flex;
     border: 5px groove rgb(130,32,0);
-    margin-bottom: 100px;
+    
+    
 }
 
 .o{
