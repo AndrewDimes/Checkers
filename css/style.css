@@ -22,7 +22,9 @@ body{
     
 }
 h1{
-    color:cornsilk;
+    color: black;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 50px;
 }
 
 #button{
@@ -97,7 +99,11 @@ h1{
 }
 .black-score{
     height: 62px;
+    
+   
 }
 .red-score{
     height: 62px;
+    
+    
 }
