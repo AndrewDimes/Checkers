@@ -1,49 +1,103 @@
 body{
-    background-size: cover;
+   background-size: cover;
+    
+
 }
 
 #checkers-board {
     display:flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 65vh;
+    
+    
       
 }
 #top{
     color: black;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 175px;
+    
+    
     
 }
+h1{
+    color:cornsilk;
+}
 
-#rematch-button{
-    font-size: 20px;
+#button{
+    font-size: 17px;
     border: 2px solid black;
-    width: 100px;
+    width: 80px;
     align-content: center;
-
-    
+    cursor: pointer;
     
 }
-
 
 .table {
     display: flex;
     border: 5px groove rgb(130,32,0);
+    cursor:pointer;
+    margin-left: 10px;
+    margin-right: 75px;
     
     
 }
 
 .o{
     background-color: rgb(226,161,83);
-    width: 75px;
-    height:75px;
+    width: 70px;
+    height:70px;
 
 }
 .x {
     background-color: rgb(129,32,0);
-    height:75px;
+    height:70px;
     text-align: center;
     line-height: 110px;
     font-size: larger;
+}
+#players-turn{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    text-decoration: underline;
+    font-size: 30px;
+    color: cornsilk;
+    height:10vh;
+}
+#black {
+    border: 3px solid rgba(255, 217, 0, 0);
+    box-shadow:0px 0px 20px rgba(255, 217, 0, 0);
+    border-radius: 30px;
+}
+#red {
+    border: 3px solid rgba(255, 217, 0, 0);
+    box-shadow:0px 0px 20px rgba(255, 217, 0, 0);
+    border-radius: 30px;
+
+}
+#scoreboard{
+    display: flex;
+    color: blanchedalmond;
+    align-content: center;
+    flex-direction: column;
+    border: 5px groove rgb(130,32,0);
+    background-color: rgb(226,161,83);
+    
+}
+#red-points{
+    border: 3px solid black;
+    padding: 3px;
+}
+#black-points{
+    border: 3px solid black;
+    padding: 3px;
+    
+}
+.black-score{
+    height: 62px;
+}
+.red-score{
+    height: 62px;
 }
