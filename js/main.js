@@ -1,11 +1,12 @@
 /*----- constants -----*/
 
 /*----- app's state (variables) -----*/
-let emptyDiv = [];
-let occupiedRed = [];
-let occupiedBlack =[];
+let emptyDiv = {};
+let occupiedRed = {};
+let occupiedBlack ={};
 let turn = 0;
-let emptySpot = [];
+let blackKey =[]
+let emptyKey =[]
 
 
 /*----- cached element references -----*/
@@ -16,6 +17,7 @@ const redPieces = document.querySelectorAll('#red');
 const playerTurnText = document.getElementById('players-turn');
 const redScore = document.getElementById('red-points')
 const blackScore = document.getElementById('black-points')
+
 
 
 
@@ -41,34 +43,38 @@ function init(){
     };
     
     findEmpty();
+    highlightTurn();
     playerMove();
 };
 
 function playerMove() {
+    for(let keyBlack in occupiedBlack){
+        blackKey.push(keyBlack)
+    }
+    for(let keyNone in emptyDiv){
+        emptyKey.push(keyNone)
+    }
+    for(let key of blackKey){
+        for(let i =0;i<emptyKey.length;i++){
+            //console.log(parseInt(key),parseInt(emptyKey[i]))
+            if(parseInt(key)+4 === parseInt(emptyKey[i])){
+                //console.log(key,emptyKey[i])
+                console.log(occupiedBlack[key],emptyDiv[emptyKey[i]])
+            }
+            
+        }
+    }
     
 
-    if(turn === 0){
-        for(let i = 0; i < blackPieces.length; i++ ){
-            //console.log(boardEl[i],boardEl[i+4])
+        
+    
+    
+    
             
-            blackPieces[i].style.border = '3px solid gold';
-            blackPieces[i].style.boxShadow = '0px 0px 20px gold';
-            blackPieces[i].style.borderRadius = '30px';
-            blackScore.style.border = '3px solid gold';
-            blackScore.style.boxShadow = '0px 0px 20px gold';
-            blackScore.style.borderRadius = '30px';
-            
-        } 
-    }else{
-        for(let i = 0; i < redPieces.length; i++ ){
-            redPieces[i].style.border = '3px solid gold';
-            redPieces[i].style.boxShadow = '0px 0px 20px gold';
-            redPieces[i].style.borderRadius = '30px';
-            redScore.style.border = '3px solid gold';
-            redScore.style.boxShadow = '0px 0px 20px gold';
-            redScore.style.borderRadius = '30px';
-        };
-    };
+    
+    
+    
+
 };
 
 function findEmpty(){
@@ -87,4 +93,28 @@ function findEmpty(){
         };
     };
    
+}
+
+function highlightTurn() {
+    if(turn === 0){
+        for(let i = 0; i < blackPieces.length; i++ ){
+            blackPieces[i].style.border = '3px solid gold';
+            blackPieces[i].style.boxShadow = '0px 0px 20px gold';
+            blackPieces[i].style.borderRadius = '30px';
+            blackScore.style.border = '3px solid gold';
+            blackScore.style.boxShadow = '0px 0px 20px gold';
+            blackScore.style.borderRadius = '30px';
+            
+        } 
+    }else{
+        for(let i = 0; i < redPieces.length; i++ ){
+            redPieces[i].style.border = '3px solid gold';
+            redPieces[i].style.boxShadow = '0px 0px 20px gold';
+            redPieces[i].style.borderRadius = '30px';
+            redScore.style.border = '3px solid gold';
+            redScore.style.boxShadow = '0px 0px 20px gold';
+            redScore.style.borderRadius = '30px';
+        };
+    };
+
 }
