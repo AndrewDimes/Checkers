@@ -5,6 +5,7 @@ let emptyDiv = [];
 let occupiedRed = [];
 let occupiedBlack =[];
 let turn = 0;
+let emptySpot = [];
 
 
 /*----- cached element references -----*/
@@ -15,6 +16,7 @@ const redPieces = document.querySelectorAll('#red');
 const playerTurnText = document.getElementById('players-turn');
 const redScore = document.getElementById('red-points')
 const blackScore = document.getElementById('black-points')
+
 
 
 /*----- event listeners -----*/
@@ -38,26 +40,17 @@ function init(){
         boardEl[i].addEventListener("click",playerMove);
     };
     
-    for(let i = 0; i < boardEl.length; i++){
-        //console.log(boardEl[i])
-        if(boardEl[i].innerHTML === ''){
-           //Assigning empty spaces 
-           // console.log(boardEl[i].innerHTML)
-            emptyDiv[i] = boardEl[i];
-        } else if(boardEl[i].innerHTML === '<img src="red.png" width="50px" height="50px" id="red">') {
-            //assigning spaces with red pieces on it
-            occupiedRed[i] = boardEl[i];
-        } else {
-            //assigning spaces with black pieces on it
-            occupiedBlack[i] = boardEl[i];
-        };
-    };
+    findEmpty();
     playerMove();
 };
 
 function playerMove() {
+    
+
     if(turn === 0){
         for(let i = 0; i < blackPieces.length; i++ ){
+            //console.log(boardEl[i],boardEl[i+4])
+            
             blackPieces[i].style.border = '3px solid gold';
             blackPieces[i].style.boxShadow = '0px 0px 20px gold';
             blackPieces[i].style.borderRadius = '30px';
@@ -77,4 +70,21 @@ function playerMove() {
         };
     };
 };
-    
+
+function findEmpty(){
+    for(let i = 0; i < boardEl.length; i++){
+        //console.log(boardEl[i])
+        if(boardEl[i].innerHTML === ''){
+           //Assigning empty spaces 
+           // console.log(boardEl[i].innerHTML)
+            emptyDiv[i] = boardEl[i];
+        } else if(boardEl[i].innerHTML === '<img src="red.png" width="50px" height="50px" id="red">') {
+            //assigning spaces with red pieces on it
+            occupiedRed[i] = boardEl[i];
+        } else {
+            //assigning spaces with black pieces on it
+            occupiedBlack[i] = boardEl[i];
+        };
+    };
+   
+}
