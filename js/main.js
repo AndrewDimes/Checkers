@@ -1,120 +1,87 @@
 /*----- constants -----*/
+const red = 'red'
+const black = 'black'
+const board = [
+    [null, 0, null, 1, null, 2, null, 3],
+    [4, null, 5, null, 6, null, 7, null],
+    [null, 8, null, 9, null, 10, null, 11],
+    [null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null],
+    [12, null, 13, null, 14, null, 15, null],
+    [null, 16, null, 17, null, 18, null, 19],
+    [20, null, 21, null, 22, null, 23, null],
+  ]
+
 
 /*----- app's state (variables) -----*/
-let emptyDiv = {};
-let occupiedRed = {};
-let occupiedBlack ={};
-let turn = 0;
-let blackKey =[]
-let emptyKey =[]
+
+let turn = 'black';
+
+
 
 
 /*----- cached element references -----*/
-const startButton = document.getElementById('button');
-const boardEl = document.querySelectorAll('.x');
-const blackPieces = document.querySelectorAll('#black');
-const redPieces = document.querySelectorAll('#red');
+const startButton = document.getElementById('button')
+const boardEl = document.getElementById('table')
 const playerTurnText = document.getElementById('players-turn');
 const redScore = document.getElementById('red-points')
 const blackScore = document.getElementById('black-points')
-
-
+const rows = document.getElementsByClassName('row')
 
 
 /*----- event listeners -----*/
-//begin game
-startButton.addEventListener('click',init);
-
-
-
-
-
-
+startButton.addEventListener('click',init)
+boardEl.addEventListener('click',handleClick)
 
 /*----- functions -----*/
 
 function init(){
-    //console.log('init is working');
+    startButton.disabled = true;
     playerTurnText.innerText = 'Player 1: Click the piece you want to move'
-
-    //Getting divs for all of the board spaces
-    for (i = 0; i < boardEl.length; i++) {
-        boardEl[i].addEventListener("click",playerMove);
-    };
-    
-    findEmpty();
-    highlightTurn();
-    playerMove();
-};
-
-function playerMove() {
-    for(let keyBlack in occupiedBlack){
-        blackKey.push(keyBlack)
-    }
-    for(let keyNone in emptyDiv){
-        emptyKey.push(keyNone)
-    }
-    for(let key of blackKey){
-        for(let i =0;i<emptyKey.length;i++){
-            //console.log(parseInt(key),parseInt(emptyKey[i]))
-            if(parseInt(key)+4 === parseInt(emptyKey[i])){
-                //console.log(key,emptyKey[i])
-                console.log(occupiedBlack[key],emptyDiv[emptyKey[i]])
-            }
-            
-        }
-    }
-    
-
-        
-    
-    
-    
-            
-    
-    
-    
-
-};
-
-function findEmpty(){
-    for(let i = 0; i < boardEl.length; i++){
-        //console.log(boardEl[i])
-        if(boardEl[i].innerHTML === ''){
-           //Assigning empty spaces 
-           // console.log(boardEl[i].innerHTML)
-            emptyDiv[i] = boardEl[i];
-        } else if(boardEl[i].innerHTML === '<img src="red.png" width="50px" height="50px" id="red">') {
-            //assigning spaces with red pieces on it
-            occupiedRed[i] = boardEl[i];
-        } else {
-            //assigning spaces with black pieces on it
-            occupiedBlack[i] = boardEl[i];
-        };
-    };
-   
+    render()
 }
 
-function highlightTurn() {
-    if(turn === 0){
-        for(let i = 0; i < blackPieces.length; i++ ){
-            blackPieces[i].style.border = '3px solid gold';
-            blackPieces[i].style.boxShadow = '0px 0px 20px gold';
-            blackPieces[i].style.borderRadius = '30px';
+function handleClick(e){
+    console.log(e.target.className)
+
+}
+
+function render() {
+    for(let i =0; i<board.length;i++){
+        for(let j=0; j<board[i].length; j++){
+            // console.log(rows[i].chil ren[j]);
+            if(board[i][j] === 0 || board[i][j] === 1 || board[i][j] === 2 || board[i][j] === 3||board[i][j] === 4||board[i][j] === 5||board[i][j] === 6||board[i][j] === 7||board[i][j] === 8||board[i][j] === 9||board[i][j] === 10||board[i][j] === 11 ){
+                let redPiece = document.createElement('IMG')    
+                redPiece.setAttribute('src','images/red.png')
+                redPiece.style.width = '50px'
+                redPiece.style.height = '50px'
+                redPiece.className = board[i][j]
+                rows[i].children[j].appendChild(redPiece)
+            } else if(board[i][j] === 12 || board[i][j] === 13 || board[i][j] === 14 || board[i][j] === 15||board[i][j] === 16||board[i][j] === 17||board[i][j] === 18||board[i][j] === 19||board[i][j] === 20||board[i][j] === 21||board[i][j] === 22||board[i][j] === 23 ){
+                let blackPiece = document.createElement('IMG')
+                blackPiece.setAttribute('src','images/black.png')
+                //console.log(blackPiece)
+                blackPiece.style.width = '50px'
+                blackPiece.style.height = '50px'
+                blackPiece.className= board[i][j]
+                rows[i].children[j].appendChild(blackPiece)
+            }
+        }
+    }
+    if(turn === 'black'){
             blackScore.style.border = '3px solid gold';
             blackScore.style.boxShadow = '0px 0px 20px gold';
-            blackScore.style.borderRadius = '30px';
-            
-        } 
+            blackScore.style.borderRadius = '30px'; 
     }else{
-        for(let i = 0; i < redPieces.length; i++ ){
-            redPieces[i].style.border = '3px solid gold';
-            redPieces[i].style.boxShadow = '0px 0px 20px gold';
-            redPieces[i].style.borderRadius = '30px';
             redScore.style.border = '3px solid gold';
             redScore.style.boxShadow = '0px 0px 20px gold';
             redScore.style.borderRadius = '30px';
-        };
+        
     };
 
+}
+
+function getPlayerPieces(){
+    let redPieces = document.getElementsByClassName('')
+    
 }

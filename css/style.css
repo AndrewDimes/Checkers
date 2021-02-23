@@ -1,110 +1,124 @@
 body{
-   background-size: cover;
-   background-position:center;
-    
+    background-size: cover;
+    background-position:center;
+     
+ 
+ }
+ 
+ #checkers-board {
+     display:flex;
+     justify-content: center;
+     align-items: center;
+     height: 65vh;
+     
+     
+ 
+ }
+ #top{
+     color: black;
+     text-align: center;
+     margin-top: 175px;
+     
+     
+     
+     
+ }
+ h1{
+     color: black;
+     font-family: 'Permanent Marker', cursive;
+     font-size: 50px;
+ }
+ 
+ #button{
+     font-size: 17px;
+     border: 2px solid black;
+     width: 80px;
+     align-content: center;
+     cursor: pointer;
+     
+ }
+ 
+ #table {
+     display: flex;
+     border: 5px groove rgb(130,32,0);
+     cursor:pointer;
+     margin-left: 10px;
+     margin-right: 75px;  
+     flex-direction: column;
+     
+     
+ }
+ .row{
+     display: flex;
+     flex-direction: row;
+     
+ }
+ 
+ .o{
+     background-color: rgb(226,161,83);
+     width: 70px;
+     height:70px;
+     
 
-}
-
-#checkers-board {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: 65vh;
-
-}
-#top{
-    color: black;
-    text-align: center;
-    margin-top: 175px;
+     
     
+ 
+ }
+ .x {
+     background-color: rgb(129,32,0);
+     height:70px;
+     width:70px;
+     text-align: center;
+     line-height: 110px;
+     font-size: larger;
+     
+     
+ }
+ #players-turn{
+     display:flex;
+     justify-content: center;
+     align-content: center;
+     text-decoration: underline;
+     font-size: 30px;
+     color: cornsilk;
+     height:10vh;
+ }
+ #black {
+     border: 3px solid rgba(255, 217, 0, 0);
+     box-shadow:0px 0px 20px rgba(255, 217, 0, 0);
+     border-radius: 30px;
+ }
+ #red {
+     border: 3px solid rgba(255, 217, 0, 0);
+     box-shadow:0px 0px 20px rgba(255, 217, 0, 0);
+     border-radius: 30px;
+ 
+ }
+ #scoreboard{
+     display: flex;
+     color: blanchedalmond;
+     align-content: center;
+     flex-direction: column;
+     border: 5px groove rgb(130,32,0);
+     background-color: rgb(226,161,83);
+     
+ }
+ #red-points{
+     border: 3px solid black;
+     padding: 3px;
+ }
+ #black-points{
+     border: 3px solid black;
+     padding: 3px;
+     
+ }
+ .black-score{
+     height: 62px;
+     
     
-    
-    
-}
-h1{
-    color: black;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 50px;
-}
-
-#button{
-    font-size: 17px;
-    border: 2px solid black;
-    width: 80px;
-    align-content: center;
-    cursor: pointer;
-    
-}
-
-.table {
-    display: flex;
-    border: 5px groove rgb(130,32,0);
-    cursor:pointer;
-    margin-left: 10px;
-    margin-right: 75px;
-    
-    
-    
-}
-
-.o{
-    background-color: rgb(226,161,83);
-    width: 70px;
-    height:70px;
-
-}
-.x {
-    background-color: rgb(129,32,0);
-    height:70px;
-    text-align: center;
-    line-height: 110px;
-    font-size: larger;
-}
-#players-turn{
-    display:flex;
-    justify-content: center;
-    align-content: center;
-    text-decoration: underline;
-    font-size: 30px;
-    color: cornsilk;
-    height:10vh;
-}
-#black {
-    border: 3px solid rgba(255, 217, 0, 0);
-    box-shadow:0px 0px 20px rgba(255, 217, 0, 0);
-    border-radius: 30px;
-}
-#red {
-    border: 3px solid rgba(255, 217, 0, 0);
-    box-shadow:0px 0px 20px rgba(255, 217, 0, 0);
-    border-radius: 30px;
-
-}
-#scoreboard{
-    display: flex;
-    color: blanchedalmond;
-    align-content: center;
-    flex-direction: column;
-    border: 5px groove rgb(130,32,0);
-    background-color: rgb(226,161,83);
-    
-}
-#red-points{
-    border: 3px solid black;
-    padding: 3px;
-}
-#black-points{
-    border: 3px solid black;
-    padding: 3px;
-    
-}
-.black-score{
-    height: 62px;
-    
-   
-}
-.red-score{
-    height: 62px;
-    
-    
-}
+ }
+ .red-score{
+     height: 62px;
+     
+     
+ }
