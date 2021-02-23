@@ -1,21 +1,27 @@
 /*----- constants -----*/
-const red = 'red'
-const black = 'black'
+
 const board = [
-    [null, 0, null, 1, null, 2, null, 3],
-    [4, null, 5, null, 6, null, 7, null],
-    [null, 8, null, 9, null, 10, null, 11],
+    [null, 'red', null, 'red', null, 'red', null, 'red'],
+    ['red', null, 'red', null, 'red', null, 'red', null],
+    [null, 'red', null, 'red', null, 'red', null, 'red'],
     [null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null],
-    [12, null, 13, null, 14, null, 15, null],
-    [null, 16, null, 17, null, 18, null, 19],
-    [20, null, 21, null, 22, null, 23, null],
+    ['black', null, 'black', null, 'black', null, 'black', null],
+    [null, 'black', null, 'black', null, 'black', null, 'black'],
+    ['black', null, 'black', null, 'black', null, 'black', null],
   ]
 
 
 /*----- app's state (variables) -----*/
 
+//handle player turn
 let turn = 'black';
+
+//determine players pieces
+let playerPieces;
+
+
+
 
 
 
@@ -27,61 +33,142 @@ const playerTurnText = document.getElementById('players-turn');
 const redScore = document.getElementById('red-points')
 const blackScore = document.getElementById('black-points')
 const rows = document.getElementsByClassName('row')
+const redPieces = document.getElementsByClassName('red-checker')
+const blackPieces = document.getElementsByClassName('black-checker')
+const spaces = document.getElementsByClassName('x')
+
+
 
 
 /*----- event listeners -----*/
 startButton.addEventListener('click',init)
 boardEl.addEventListener('click',handleClick)
 
+
+
+
+
 /*----- functions -----*/
 
+
+
+//loads the checkers onto board
+
+//after start click begins 
 function init(){
     startButton.disabled = true;
     playerTurnText.innerText = 'Player 1: Click the piece you want to move'
-    render()
+    render() 
+}
+function clearBoard(){
+    for(let i =0;i<spaces.length;i++){
+        spaces[i].innerHTML = ''
+
+    }
+    console.log(spaces)
 }
 
-function handleClick(e){
-    console.log(e.target.className)
-
-}
-
+// manipulates the dom
 function render() {
+    clearBoard()
     for(let i =0; i<board.length;i++){
         for(let j=0; j<board[i].length; j++){
             // console.log(rows[i].chil ren[j]);
-            if(board[i][j] === 0 || board[i][j] === 1 || board[i][j] === 2 || board[i][j] === 3||board[i][j] === 4||board[i][j] === 5||board[i][j] === 6||board[i][j] === 7||board[i][j] === 8||board[i][j] === 9||board[i][j] === 10||board[i][j] === 11 ){
+            if(board[i][j] === 'red') {
                 let redPiece = document.createElement('IMG')    
                 redPiece.setAttribute('src','images/red.png')
                 redPiece.style.width = '50px'
                 redPiece.style.height = '50px'
-                redPiece.className = board[i][j]
+                redPiece.id = j
+                redPiece.className = i
                 rows[i].children[j].appendChild(redPiece)
-            } else if(board[i][j] === 12 || board[i][j] === 13 || board[i][j] === 14 || board[i][j] === 15||board[i][j] === 16||board[i][j] === 17||board[i][j] === 18||board[i][j] === 19||board[i][j] === 20||board[i][j] === 21||board[i][j] === 22||board[i][j] === 23 ){
+            } else if(board[i][j] === 'black') {
                 let blackPiece = document.createElement('IMG')
                 blackPiece.setAttribute('src','images/black.png')
                 //console.log(blackPiece)
                 blackPiece.style.width = '50px'
                 blackPiece.style.height = '50px'
-                blackPiece.className= board[i][j]
+                blackPiece.id= j
+                blackPiece.className = i
                 rows[i].children[j].appendChild(blackPiece)
+            } else {
+                let emptySpace = document.createElement('p')
+                emptySpace.id = j
+                emptySpace.className = i
+                emptySpace.style.width = '60px'
+                emptySpace.style.height = '60px'
+                emptySpace.style.border = '0px'
+                rows[i].children[j].appendChild(emptySpace)
+
             }
         }
+        //test()
     }
+    //highlights players turn
     if(turn === 'black'){
-            blackScore.style.border = '3px solid gold';
-            blackScore.style.boxShadow = '0px 0px 20px gold';
-            blackScore.style.borderRadius = '30px'; 
+        for(let piece of blackPieces){
+            piece.style.border = '3px solid gold';
+            piece.style.boxShadow = '0px 0px 20px gold';
+            piece.style.borderRadius = '30px';  
+        }
+        blackScore.style.border = '3px solid gold';
+        blackScore.style.boxShadow = '0px 0px 20px gold';
+        blackScore.style.borderRadius = '30px'; 
     }else{
-            redScore.style.border = '3px solid gold';
-            redScore.style.boxShadow = '0px 0px 20px gold';
-            redScore.style.borderRadius = '30px';
+        redScore.style.border = '3px solid gold';
+        redScore.style.boxShadow = '0px 0px 20px gold';
+        redScore.style.borderRadius = '30px';
         
     };
-
-}
-
-function getPlayerPieces(){
-    let redPieces = document.getElementsByClassName('')
     
+
 }
+let pieceSelected = false;
+//when a place is clicked
+function handleClick(e) {
+    console.log(e.target.id)
+    console.log(e.target.className)
+    let index = parseInt(e.target.id)
+    let row = parseInt(e.target.className)
+    if(pieceSelected){
+        movePiece(e,pieceSelected)
+    }
+    console.log(rows[row].children[index])
+    pieceSelected = [ board[row][index], row, index]
+    // if(pieceSelected == 'red'){
+
+
+       
+    // } else if(pieceSelected == 'black') {
+
+    // } else {
+
+    // }
+    console.log(pieceSelected)
+
+
+}
+
+
+    
+function movePiece(e,pieceSelected) {
+    let index = parseInt(e.target.id)
+    let row = parseInt(e.target.className)
+    let desiredSpace = board[row][index]
+    if(!desiredSpace){
+        board[row][index]=pieceSelected[0]
+        board[pieceSelected[1]][pieceSelected[2]] = null
+
+
+
+    }
+   render()
+}   
+
+   
+    
+
+
+    
+    
+
