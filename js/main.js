@@ -16,9 +16,9 @@ const board = [
 
 //handle player turn
 let turn = 'black';
-
 //determine players pieces
 let playerPieces;
+let pieceSelected = false;
 
 
 
@@ -63,14 +63,28 @@ function init(){
 function clearBoard(){
     for(let i =0;i<spaces.length;i++){
         spaces[i].innerHTML = ''
-
     }
-    console.log(spaces)
+}
+
+function playerTurn(){
+    if(turn === 'black'){
+        turn = 'red'
+    } else {
+        turn = 'black'
+    }
+}
+function changeTurnText(){
+    if(turn === 'black'){
+        playerTurnText.innerText = 'Player 1: Click the piece you want to move'
+    } else {
+        playerTurnText.innerText = 'Player 2: Click the piece you want to move'
+    }
 }
 
 // manipulates the dom
 function render() {
     clearBoard()
+    changeTurnText()
     for(let i =0; i<board.length;i++){
         for(let j=0; j<board[i].length; j++){
             // console.log(rows[i].chil ren[j]);
@@ -106,47 +120,43 @@ function render() {
     }
     //highlights players turn
     if(turn === 'black'){
-        for(let piece of blackPieces){
-            piece.style.border = '3px solid gold';
-            piece.style.boxShadow = '0px 0px 20px gold';
-            piece.style.borderRadius = '30px';  
-        }
         blackScore.style.border = '3px solid gold';
         blackScore.style.boxShadow = '0px 0px 20px gold';
         blackScore.style.borderRadius = '30px'; 
+        redScore.style.border = '';
+        redScore.style.boxShadow = '';
+        redScore.style.borderRadius = '';
+
     }else{
         redScore.style.border = '3px solid gold';
         redScore.style.boxShadow = '0px 0px 20px gold';
         redScore.style.borderRadius = '30px';
+        blackScore.style.border = '';
+        blackScore.style.boxShadow = '';
+        blackScore.style.borderRadius = ''; 
         
     };
     
 
 }
-let pieceSelected = false;
+
 //when a place is clicked
 function handleClick(e) {
-    console.log(e.target.id)
-    console.log(e.target.className)
     let index = parseInt(e.target.id)
     let row = parseInt(e.target.className)
-    if(pieceSelected){
-        movePiece(e,pieceSelected)
+    if(turn === 'black'){
+        if(pieceSelected[0] === 'black'){
+            movePiece(e,pieceSelected)
+        }
+    } else {
+        if(pieceSelected[0] === 'red'){
+            movePiece(e,pieceSelected)
+        }
     }
-    console.log(rows[row].children[index])
+
+    
     pieceSelected = [ board[row][index], row, index]
-    // if(pieceSelected == 'red'){
-
-
-       
-    // } else if(pieceSelected == 'black') {
-
-    // } else {
-
-    // }
-    console.log(pieceSelected)
-
-
+    console.log('pieceSelected',pieceSelected)
 }
 
 
@@ -155,15 +165,17 @@ function movePiece(e,pieceSelected) {
     let index = parseInt(e.target.id)
     let row = parseInt(e.target.className)
     let desiredSpace = board[row][index]
+    console.log('desired space',desiredSpace)
     if(!desiredSpace){
+        console.log('inside desired',desiredSpace)
         board[row][index]=pieceSelected[0]
         board[pieceSelected[1]][pieceSelected[2]] = null
-
-
-
     }
-   render()
+    
+    playerTurn()
+    render()
 }   
+
 
    
     
