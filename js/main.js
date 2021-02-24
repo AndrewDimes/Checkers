@@ -1,3 +1,4 @@
+
 /*----- constants -----*/
 
 const board = [
@@ -173,8 +174,18 @@ function movePiece(e,pieceSelected) {
         board[row][index]=pieceSelected[0]
         board[pieceSelected[1]][pieceSelected[2]] = null
         playerTurn()
-       } else {
-           console.log('something is wrong')
+       } else if(turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]-2 && board[row+1][index+1] === 'black' || turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]+2 && board[row+1][index-1] === 'black' ||
+       turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]-2 && board[row+1][index-1] === 'black' || turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]+2 && board[row+1][index+1] === 'black'){
+        board[row][index]=pieceSelected[0]
+        board[pieceSelected[1]][pieceSelected[2]] = null
+        playerTurn()
+       } else if(turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]-2 && board[row-1][index+1] === 'red' || turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]+2 && board[row-1][index-1] === 'red' ||
+       turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]-2 && board[row-1][index-1] === 'red' || turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]+2 && board[row-1][index+1] === 'red') {
+        board[row][index]=pieceSelected[0]
+        board[pieceSelected[1]][pieceSelected[2]] = null
+        playerTurn()
+
+
        }
     }
     
