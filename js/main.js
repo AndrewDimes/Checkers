@@ -37,6 +37,7 @@ const rows = document.getElementsByClassName('row')
 const redPieces = document.getElementsByClassName('red-checker')
 const blackPieces = document.getElementsByClassName('black-checker')
 const spaces = document.getElementsByClassName('x')
+const oSpaces = document.getElementsByClassName('o')
 
 
 
@@ -64,6 +65,8 @@ function init(){
 function clearBoard(){
     for(let i =0;i<spaces.length;i++){
         spaces[i].innerHTML = ''
+        oSpaces[i].innerHTML = ''
+        console.log(spaces[i])
     }
 }
 
