@@ -153,10 +153,8 @@ function handleClick(e) {
             movePiece(e,pieceSelected)
         }
     }
-
-    
     pieceSelected = [ board[row][index], row, index]
-    console.log('pieceSelected',pieceSelected)
+    //console.log('pieceSelected',pieceSelected)
 }
 
 
@@ -164,15 +162,22 @@ function handleClick(e) {
 function movePiece(e,pieceSelected) {
     let index = parseInt(e.target.id)
     let row = parseInt(e.target.className)
+    console.log(pieceSelected)
     let desiredSpace = board[row][index]
-    console.log('desired space',desiredSpace)
     if(!desiredSpace){
-        console.log('inside desired',desiredSpace)
+       if(turn === 'red' && row === pieceSelected[1]+1 && index === pieceSelected[2]-1 || turn === 'red' && row === pieceSelected[1]+1 && index === pieceSelected[2]+1){
         board[row][index]=pieceSelected[0]
         board[pieceSelected[1]][pieceSelected[2]] = null
+        playerTurn()
+       } else if(turn === 'black' && row === pieceSelected[1]-1 && index === pieceSelected[2]-1 || turn === 'black' && row === pieceSelected[1]-1 && index === pieceSelected[2]+1){
+        board[row][index]=pieceSelected[0]
+        board[pieceSelected[1]][pieceSelected[2]] = null
+        playerTurn()
+       } else {
+           console.log('something is wrong')
+       }
     }
     
-    playerTurn()
     render()
 }   
 
