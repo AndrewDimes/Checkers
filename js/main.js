@@ -20,6 +20,8 @@ let turn = 'black';
 //determine players pieces
 let playerPieces;
 let pieceSelected = false;
+let redPoints = 0;
+let blackPoints = 0;
 
 
 
@@ -70,6 +72,45 @@ function clearBoard(){
     }
 }
 
+function handleScore() {
+    if(blackPoints === 1){
+        blackScore.setAttribute('src','images/black-1.png')
+    } else if(blackPoints == 2){
+        blackScore.setAttribute('src','images/black-2.png')
+
+    } else if(blackPoints == 3){
+        blackScore.setAttribute('src','images/black-3.png')
+
+    } else if(blackPoints == 4){
+        blackScore.setAttribute('src','images/black-4.png')
+
+    } else if(blackPoints == 5){
+        blackScore.setAttribute('src','images/black-5.png')
+
+    } else if(blackPoints == 6){
+        blackScore.setAttribute('src','images/black-6.png')
+
+    } else if(blackPoints == 7){
+        blackScore.setAttribute('src','images/black-7.png')
+
+    } else if(blackPoints == 8){
+        blackScore.setAttribute('src','images/black-8.png')
+
+    } else if(blackPoints == 9){
+        blackScore.setAttribute('src','images/black-9.png')
+
+    }else if(blackPoints == 10){
+        blackScore.setAttribute('src','images/black-10.png')
+
+    }else if(blackPoints == 11){
+        blackScore.setAttribute('src','images/black-11.png')
+
+    }else if(blackPoints == 12){
+        blackScore.setAttribute('src','images/black-12.png')
+
+    }
+}
+
 function playerTurn(){
     if(turn === 'black'){
         turn = 'red'
@@ -88,6 +129,7 @@ function changeTurnText(){
 // manipulates the dom
 function render() {
     clearBoard()
+    handleScore()
     changeTurnText()
     for(let i =0; i<board.length;i++){
         for(let j=0; j<board[i].length; j++){
@@ -183,8 +225,10 @@ function movePiece(e,pieceSelected) {
         board[pieceSelected[1]][pieceSelected[2]] = null
         if(board[row-1][index-1] === 'black'){
             board[row-1][index-1] = null
+            redPoints++
         } else if(board[row-1][index+1] === 'black'){
             board[row-1][index+1] = null
+            redPoints++
         }
 
         playerTurn()
@@ -194,8 +238,10 @@ function movePiece(e,pieceSelected) {
         board[pieceSelected[1]][pieceSelected[2]] = null
         if(board[row+1][index-1] === 'red'){
             board[row+1][index-1] = null
+            blackPoints++
         } else if(board[row+1][index+1] === 'red'){
              board[row+1][index+1] = null
+             blackPoints++
         }
         playerTurn()
 
