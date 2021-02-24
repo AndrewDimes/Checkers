@@ -110,8 +110,8 @@ function render() {
                 let emptySpace = document.createElement('p')
                 emptySpace.id = j
                 emptySpace.className = i
-                emptySpace.style.width = '60px'
-                emptySpace.style.height = '60px'
+                emptySpace.style.width = '50px'
+                emptySpace.style.height = '50px'
                 emptySpace.style.border = '0px'
                 rows[i].children[j].appendChild(emptySpace)
 
@@ -178,11 +178,22 @@ function movePiece(e,pieceSelected) {
        turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]-2 && board[row+1][index-1] === 'black' || turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]+2 && board[row+1][index+1] === 'black'){
         board[row][index]=pieceSelected[0]
         board[pieceSelected[1]][pieceSelected[2]] = null
+        if(board[row-1][index-1] === 'black'){
+            board[row-1][index-1] = null
+        } else if(board[row-1][index+1] === 'black'){
+            board[row-1][index+1] = null
+        }
+
         playerTurn()
        } else if(turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]-2 && board[row-1][index+1] === 'red' || turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]+2 && board[row-1][index-1] === 'red' ||
        turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]-2 && board[row-1][index-1] === 'red' || turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]+2 && board[row-1][index+1] === 'red') {
         board[row][index]=pieceSelected[0]
         board[pieceSelected[1]][pieceSelected[2]] = null
+        if(board[row+1][index-1] === 'red'){
+            board[row+1][index-1] = null
+        } else if(board[row+1][index+1] === 'red'){
+             board[row+1][index+1] = null
+        }
         playerTurn()
 
 
