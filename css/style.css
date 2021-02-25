@@ -1,29 +1,29 @@
 body{
     background-size: cover;
     background-position:center;
-     
- 
+    background-repeat: no-repeat;
+    height:100%;
+    width: 100%;
+    
  }
+ 
+ 
  
  #checkers-board {
      display:flex;
      justify-content: center;
      align-items: center;
-     height: 65vh;
-     
-     
- 
+     height: 70%;
+    
  }
  #top{
      text-align: center;
-     margin-top: 175px;
-     
-     
-     
-     
+     margin-top: 16vh; 
+     position:relative;
+     margin-bottom: 2vh;
  }
  h1{
-     color: white;
+     color: gold;
      font-family: 'Permanent Marker', cursive;
      font-size: 50px;
  }
@@ -34,34 +34,31 @@ body{
      width: 90px;
      align-content: center;
      cursor: pointer;
+     background-color: rgb(226,161,83);
+     border: 4px groove rgb(130,32,0);
+     color: gold;
+     font-family: 'Permanent Marker', cursive; 
      
  }
  
  #table {
+     
      display: flex;
      border: 5px groove rgb(130,32,0);
      cursor:pointer;
      margin-left: 10px;
      margin-right: 75px;  
-     flex-direction: column;
-     
-     
+     flex-direction: column;  
  }
  .row{
      display: flex;
      flex-direction: row;
-     
  }
  
  .o{
      background-color: rgb(226,161,83);
      width: 70px;
      height:70px;
-     
-
-     
-    
- 
  }
  .x {
      background-color: rgb(129,32,0);
@@ -69,9 +66,7 @@ body{
      width:70px;
      text-align: center;
      line-height: 110px;
-     font-size: larger;
-     
-     
+     font-size: larger;  
  }
  #players-turn{
      display:flex;
@@ -92,7 +87,6 @@ body{
      border: 3px solid rgba(255, 217, 0, 0);
      box-shadow:0px 0px 20px rgba(255, 217, 0, 0);
      border-radius: 30px;
- 
  }
  #scoreboard{
      display: flex;
@@ -100,8 +94,7 @@ body{
      align-content: center;
      flex-direction: column;
      border: 5px groove rgb(130,32,0);
-     background-color: rgb(226,161,83);
-     
+     background-color: rgb(226,161,83); 
  }
  #red-points{
      border: 3px solid black;
@@ -119,6 +112,6 @@ body{
  }
  .red-score{
      height: 62px;
-     
-     
  }
+
+ 

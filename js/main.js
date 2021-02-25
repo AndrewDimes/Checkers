@@ -293,7 +293,7 @@ function movePiece(e, pieceSelected) {
             //black normal move
         } else if (turn === 'black' && row === pieceSelected[1] - 1 && index === pieceSelected[2] - 1 || turn === 'black' && row === pieceSelected[1] - 1 && index === pieceSelected[2] + 1) {
             board[row][index] = pieceSelected[0];
-            board[pieceSelected[1]][pieceSelected[2]] = null;
+            board[pieceSelected[1]][pieceSelected[2]] = null; 
             playerTurn();
             //red jump black
         } else if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'black') {
