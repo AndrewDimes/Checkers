@@ -55,7 +55,6 @@ boardEl.addEventListener('click',handleClick)
 /*----- functions -----*/
 
 
-
 //loads the checkers onto board
 
 //after start click begins 
@@ -156,15 +155,42 @@ function playerTurn(){
     }
 }
 function changeTurnText(){
+    
+   
     if(turn === 'black'){
         playerTurnText.innerText = 'Player 1: Click the piece you want to move'
-    } else {
+    } else if(turn === 'red') {
         playerTurnText.innerText = 'Player 2: Click the piece you want to move'
+    } else {
+       
     }
 }
+function gameOver(){
+    if(redPoints === 12){
+        playerTurnText.innerText = 'Game over! Player 2 wins!'
+        startButton.disabled = false;
+        startButton.innerText = 'Rematch?'
+        redPoints = 0
+        blackPoints = 0
+    
+    } else if(blackPoints === 12) {
+        playerTurnText.innerText = 'Game over! Player 1 wins!'
+        startButton.disabled = false;
+        startButton.innerText = 'Rematch?'
+        redPoints = 0
+        blackPoints = 0
+        }
+        clearBoard()
+    }
+            
+        
+    
+    
+
 
 // manipulates the dom
 function render() {
+    gameOver()
     clearBoard()
     handleScore()
     changeTurnText()
@@ -257,46 +283,38 @@ function movePiece(e,pieceSelected) {
         board[pieceSelected[1]][pieceSelected[2]] = null
         playerTurn()
         //red jump black
-       } else if(turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]-2 && board[row+1][index+1] === 'black' || turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]+2 && board[row-1][index-1] === 'black' ||
-       turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]-2 && board[row+1][index-1] === 'black' || turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]+2 && board[row+1][index+1] === 'black' || 
-       turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]-2 && board[row-1][index+1] === 'black'){
+       } else if(turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]-2 && board[row-1][index+1] === 'black' || turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]-2 && board[row-1][index-1] === 'black' ||
+       turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]+2 && board[row-1][index+1] === 'black' || turn === 'red' && row === pieceSelected[1]+2 && index === pieceSelected[2]+2 && board[row-1][index-1] === 'black'){
         board[row][index]=pieceSelected[0]
         board[pieceSelected[1]][pieceSelected[2]] = null
         if(board[row-1][index-1] === 'black'){
             board[row-1][index-1] = null
             redPoints++
+            
         } else if(board[row-1][index+1] === 'black'){
             board[row-1][index+1] = null
             redPoints++
+            
         } 
         playerTurn()
         //black jump red
-       } else if(turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]-2 && board[row-1][index+1] === 'red' || turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]+2 && board[row+1][index-1] === 'red' ||
-       turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]-2 && board[row+1][index+1] === 'red' || turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]+2 && board[row-1][index+1] === 'red') {
+       } else if(turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]-2 && board[row+1][index+1] === 'red' || turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]-2 && board[row+1][index-1] === 'red' ||
+       turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]+2 && board[row+1][index+1] === 'red' || turn === 'black' && row === pieceSelected[1]-2 && index === pieceSelected[2]+2 && board[row+1][index-1] === 'red') {
         board[row][index]=pieceSelected[0]
         board[pieceSelected[1]][pieceSelected[2]] = null
         if(board[row+1][index-1] === 'red'){
             board[row+1][index-1] = null
             blackPoints++
+            
         } else if(board[row+1][index+1] === 'red'){
              board[row+1][index+1] = null
              blackPoints++
-        } else if(board[row-1][index+1] === 'red'){
-            board[row-1][index+1] = null
-            blackPoints++
-        }
+             
+      } 
         playerTurn()
        }
     }
     
     render()
 }   
-
-
-   
-    
-
-
-    
-    
 
