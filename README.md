@@ -9,4 +9,4 @@ For building this game I used HTML, CSS, and Javascript.
 
 //game link
 
-Some features I hope to implement in the future are highlighted possible moves, double jump, and a king function for pieces that make it to the other end of the board.
+Some features I hope to implement in the future are highlighted possible moves, double jump, and a king function for pieces that make it to the other end of the board.SSSS1
