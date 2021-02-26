@@ -7,7 +7,41 @@ body{
     
  }
  
- 
+ #button:hover { 
+    animation: effect 0.3s infinite; 
+} 
+
+@keyframes effect { 
+    0% { 
+        transform: translateX(0px) rotate(0deg); 
+    } 
+
+    20% { 
+        transform: translateX(-4px) rotate(-4deg); 
+    } 
+
+    40% { 
+        transform: translateX(-2px) rotate(-2deg); 
+    } 
+
+    60% { 
+        transform: translateX(4px) rotate(4deg); 
+    } 
+
+    80% { 
+        transform: translateX(2px) rotate(2deg); 
+    } 
+
+    100% { 
+        transform: translateX(0px) rotate(0deg); 
+    } 
+} 
+img:hover {
+    border: 2px solid gold;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px gold;
+
+}
  
  #checkers-board {
      display:flex;
@@ -66,7 +100,8 @@ body{
      width:70px;
      text-align: center;
      line-height: 110px;
-     font-size: larger;  
+     font-size: larger; 
+     
  }
  #players-turn{
      display:flex;
@@ -77,6 +112,7 @@ body{
      font-size: 30px;
      color: gold;
      height:10vh;
+     margin-bottom: 20vh;;
  }
  #black {
      border: 3px solid rgba(255, 217, 0, 0);
@@ -95,14 +131,16 @@ body{
      flex-direction: column;
      border: 5px groove rgb(130,32,0);
      background-color: rgb(226,161,83); 
+     height:115px;
  }
  #red-points{
      border: 3px solid black;
-     padding: 3px;
+     padding: 0px;
+     
  }
  #black-points{
      border: 3px solid black;
-     padding: 3px;
+     padding: 0px;
      
  }
  .black-score{

@@ -246,15 +246,17 @@ function render() {
     //highlights players turn
     if (turn === 'black') {
         blackScore.style.border = '3px solid gold';
-        blackScore.style.boxShadow = '0px 0px 20px gold';
-        blackScore.style.borderRadius = '30px';
+        blackScore.style.boxShadow = '0px 0px 15px gold';
+        // blackScore.style.borderRadius = '30px';
+        blackScore.style.padding = '0px'
         redScore.style.border = '';
         redScore.style.boxShadow = '';
         redScore.style.borderRadius = '';
     } else {
         redScore.style.border = '3px solid gold';
-        redScore.style.boxShadow = '0px 0px 20px gold';
-        redScore.style.borderRadius = '30px';
+        redScore.style.boxShadow = '0px 0px 15px gold';
+        // redScore.style.borderRadius = '30px';
+        redScore.style.padding = '0px'
         blackScore.style.border = '';
         blackScore.style.boxShadow = '';
         blackScore.style.borderRadius = '';
