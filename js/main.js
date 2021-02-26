@@ -368,35 +368,35 @@ function movePiece(e, pieceSelected) {
                 board[pieceSelected[1]][pieceSelected[2]] = null;
                 playerTurn();
 
-            } else if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'red') {
+            } else if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'red' || turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'redking') {
                 board[row][index] = 'blackking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'red') {
+                if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'red' || turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'redking') {
                     board[row - 1][index + 1] = null;
                     blackPoints++;
                 }
                 playerTurn()
-            } else if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'red') {
+            } else if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'red' || turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'redking') {
                 board[row][index] = 'blackking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'red') {
+                if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'red' || turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'redking') {
                     board[row - 1][index - 1] = null;
                     blackPoints++;
                 }
                 playerTurn()
-            } else if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'red') {
+            } else if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'red' || turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'redking') {
                 board[row][index] = 'blackking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'red') {
+                if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'red' || turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'redking') {
                     board[row + 1][index - 1] = null;
                     blackPoints++;
                 }
                 playerTurn()
 
-            } else if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'red') {
+            } else if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'red' || turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'redking') {
                 board[row][index] = 'blackking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'red') {
+                if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'red' || turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'redking') {
                     board[row + 1][index + 1] = null;
                     blackPoints++;
                 }
@@ -413,35 +413,35 @@ function movePiece(e, pieceSelected) {
                 board[pieceSelected[1]][pieceSelected[2]] = null;
                 playerTurn();
 
-            } else if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'black') {
+            } else if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'black'|| turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'blackking') {
                 board[row][index] = 'redking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'black') {
+                if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'black'|| turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'blackking') {
                     board[row - 1][index + 1] = null;
                     redPoints++;
                 }
                 playerTurn()
-            } else if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'black') {
+            } else if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'black' || turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'blackking') {
                 board[row][index] = 'blackking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'black') {
+                if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'black' || turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'blackking') {
                     board[row - 1][index - 1] = null;
                     redPoints++;
                 }
                 playerTurn()
-            } else if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'black') {
+            } else if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'black' || turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'blackking') {
                 board[row][index] = 'redking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'black') {
+                if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'black' || turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'blackking') {
                     board[row + 1][index - 1] = null;
                     redPoints++;
                 }
                 playerTurn()
 
-            } else if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'black') {
+            } else if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'black' || turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'blackking') {
                 board[row][index] = 'redking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'black') {
+                if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'black' || turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'blackking') {
                     board[row + 1][index + 1] = null;
                     redPoints++;
                 }
@@ -457,35 +457,35 @@ function movePiece(e, pieceSelected) {
                 board[pieceSelected[1]][pieceSelected[2]] = null;
                 playerTurn();
 
-            } else if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'black') {
+            } else if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'black' || turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'blackking') {
                 board[row][index] = 'redking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'black') {
+                if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'black' || turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'blackking') {
                     board[row - 1][index + 1] = null;
                     redPoints++;
                 }
                 playerTurn()
-            } else if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'black') {
+            } else if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'black' || turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'blackking') {
                 board[row][index] = 'blackking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'black') {
+                if (turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'black' || turn === 'red' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'blackking') {
                     board[row - 1][index - 1] = null;
                     redPoints++;
                 }
                 playerTurn()
-            } else if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'black') {
+            } else if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'black' || turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'blackking') {
                 board[row][index] = 'redking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'black') {
+                if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'black' || turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'blackking') {
                     board[row + 1][index - 1] = null;
                     redPoints++;
                 }
                 playerTurn()
 
-            } else if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'black') {
+            } else if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'black'|| turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'blackking') {
                 board[row][index] = 'redking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'black') {
+                if (turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'black' || turn === 'red' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'blackking') {
                     board[row + 1][index + 1] = null;
                     redPoints++;
                 }
@@ -501,35 +501,35 @@ function movePiece(e, pieceSelected) {
                 board[pieceSelected[1]][pieceSelected[2]] = null;
                 playerTurn();
 
-            } else if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'red') {
+            } else if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'red' || turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'redking') {
                 board[row][index] = 'blackking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'red') {
+                if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'red' || turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] - 2 && board[row - 1][index + 1] === 'redking') {
                     board[row - 1][index + 1] = null;
                     blackPoints++;
                 }
                 playerTurn()
-            } else if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'red') {
+            } else if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'red' || turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'redking') {
                 board[row][index] = 'blackking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'red') {
+                if (turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'red' || turn === 'black' && row === pieceSelected[1] + 2 && index === pieceSelected[2] + 2 && board[row - 1][index - 1] === 'redking') {
                     board[row - 1][index - 1] = null;
                     blackPoints++;
                 }
                 playerTurn()
-            } else if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'red') {
+            } else if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'red' || urn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'redking') {
                 board[row][index] = 'blackking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'red') {
+                if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'red' || urn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] + 2 && board[row + 1][index - 1] === 'redking') {
                     board[row + 1][index - 1] = null;
                     blackPoints++;
                 }
                 playerTurn()
 
-            } else if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'red') {
+            } else if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'red' || turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'redking') {
                 board[row][index] = 'blackking'
                 board[pieceSelected[1]][pieceSelected[2]] = null;
-                if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'red') {
+                if (turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'red'|| turn === 'black' && row === pieceSelected[1] - 2 && index === pieceSelected[2] - 2 && board[row + 1][index + 1] === 'redking') {
                     board[row + 1][index + 1] = null;
                     blackPoints++;
                 }
