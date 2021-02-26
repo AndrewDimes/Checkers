@@ -41,6 +41,27 @@ function init() {
     gameEnded = false;
     startButton.disabled = true;
     playerTurnText.innerText = 'Player 1: Click the piece you want to move';
+    if(board !== [
+        [null, 'red', null, 'red', null, 'red', null, 'red'],
+        ['red', null, 'red', null, 'red', null, 'red', null],
+        [null, 'red', null, 'red', null, 'red', null, 'red'],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        ['black', null, 'black', null, 'black', null, 'black', null],
+        [null, 'black', null, 'black', null, 'black', null, 'black'],
+        ['black', null, 'black', null, 'black', null, 'black', null],
+    ]){
+        board = [
+            [null, 'red', null, 'red', null, 'red', null, 'red'],
+            ['red', null, 'red', null, 'red', null, 'red', null],
+            [null, 'red', null, 'red', null, 'red', null, 'red'],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            ['black', null, 'black', null, 'black', null, 'black', null],
+            [null, 'black', null, 'black', null, 'black', null, 'black'],
+            ['black', null, 'black', null, 'black', null, 'black', null],
+        ];
+    }
     render();
 };
 
@@ -149,7 +170,6 @@ function changeTurnText() {
     } else if (turn === 'red') {
         playerTurnText.innerText = 'Player 2: Click the piece you want to move';
     } else {
-
     };
 };
 
@@ -164,17 +184,6 @@ function gameOver() {
         blackPoints = 0;
         gameEnded = true;
         boardEl.removeEventListener('click', handleClick, false)
-        board = [
-            [null, 'red', null, 'red', null, 'red', null, 'red'],
-            ['red', null, 'red', null, 'red', null, 'red', null],
-            [null, 'red', null, 'red', null, 'red', null, 'red'],
-            [null, null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, null, null],
-            ['black', null, 'black', null, 'black', null, 'black', null],
-            [null, 'black', null, 'black', null, 'black', null, 'black'],
-            ['black', null, 'black', null, 'black', null, 'black', null],
-        ];
-
     } else if (blackPoints === 12) {
         playerTurnText.innerText = 'Game over! Player 1 wins!';
         startButton.disabled = false;
@@ -184,16 +193,6 @@ function gameOver() {
         gameEnded = true;
         turn = 'black'
         boardEl.removeEventListener('click', handleClick, false)
-        board = [
-            [null, 'red', null, 'red', null, 'red', null, 'red'],
-            ['red', null, 'red', null, 'red', null, 'red', null],
-            [null, 'red', null, 'red', null, 'red', null, 'red'],
-            [null, null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, null, null],
-            ['black', null, 'black', null, 'black', null, 'black', null],
-            [null, 'black', null, 'black', null, 'black', null, 'black'],
-            ['black', null, 'black', null, 'black', null, 'black', null],
-        ];
     };
 };
 
