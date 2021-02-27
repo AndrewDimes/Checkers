@@ -7,7 +7,7 @@ Checkers is a classic board game, dating back to around 3000 BC. It is very simp
 # Gameplay
 ![Alt text](/images/SS1.png?raw=true "Checkers")
 ![Alt text](/images/SS2.png?raw=true "Checkers")
-![Alt text](/images/SS2.png?raw=true "Checkers")
+![Alt text](/images/SS3.png?raw=true "Checkers")
 
 
 For building this game I used HTML, CSS, and Javascript.
