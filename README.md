@@ -7,10 +7,12 @@ Checkers is a classic board game, dating back to around 3000 BC. It is very simp
 # Gameplay
 ![Alt text](/images/SS1.png?raw=true "Checkers")
 ![Alt text](/images/SS2.png?raw=true "Checkers")
+![Alt text](/images/SS2.png?raw=true "Checkers")
+
 
 For building this game I used HTML, CSS, and Javascript.
 
 # Link to game
 https://andrewdimes.github.io/Checkers/
 
-Some features I hope to implement in the near future are highlighted possible moves, double jump, and a king function for pieces that make it to the other end of the board.
+Some features I hope to implement in the near future are highlighted possible moves & sound effects. I'm still working on the game everyday if you find any bugs please let me know!
